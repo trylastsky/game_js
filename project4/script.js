@@ -4,6 +4,9 @@ canvas.width = 500;
 canvas.height = 700
 let canvasPosition = canvas.getBoundingClientRect();
 
+const yamete = new Audio();
+yamete.src = './audio/yamete_kudasai.wav';
+
 const explosions = [];
 
 class Explosion {
@@ -37,6 +40,10 @@ class Explosion {
 
 window.addEventListener('click', (e) => {
     createAnimation(e);
+});
+
+window.addEventListener('keydown',(e) => {
+    yamete.play();
 });
 
 function createAnimation(e) {
