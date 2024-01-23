@@ -4,7 +4,7 @@ export class InputHandler {
         this.keys = [];
         window.addEventListener('keydown', e => {
             if ((   e.key === 'ArrowDown' ||
-                    e.key === 'ArrowUp' ||
+                    e.key === 'ArrowUp' || 
                     e.key === 'ArrowLeft' ||
                     e.key === 'ArrowRight' ||
                     e.key === 'Enter' 
