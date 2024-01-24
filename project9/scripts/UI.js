@@ -22,7 +22,7 @@ export class UI {
         context.fillText('Time: ' + (this.game.time * 0.001).toFixed(1), 20, 80);
         //lives
         for (let i = 0; i < this.game.lives; i++) {
-            context.drawImage(this.livesImage, 25 * i + 20, 95, 25, 25);
+            context.drawImage(this.heartImage, 30 * i + 20, 95, 25, 20);
         }
         //game over mess
         if (this.game.gameOver) {

@@ -1,12 +1,15 @@
 import { Sitting, Running, Jumping, Falling, Rolling, Diving, Hit } from "./playerStates.js";
 import { CollisionAnimation } from "./collisionAnimation.js";
 import { FloatingMessage } from "./floatingMessage.js";
+import { Sound } from "./audio.js";
+
+const sounds = new Sound();
 
 export class Player {
     constructor(game) {
         this.game = game;
         this.width = 100;
-        this.height = 91.3;
+        this.height = 91.5;
         this.x = 0;
         this.y = this.game.height - this.height - this.game.groundMargin;
         this.vy = 0;
@@ -25,6 +28,7 @@ export class Player {
         this.currentState = null;
     }
     update(input, deltaTime) {
+        this.audioUpdate();
         this.checkCollision();
         this.currentState.handleInput(input);
         //horizontal movement
@@ -90,5 +94,10 @@ export class Player {
                     }
                 }
         });
+    }
+    //bag fix
+    audioUpdate() {
+        if (this.states[4] || this.states[6]) sounds.fireSound.play();
+        if (this.states[6]) sounds.hitSound.play();
     }
 }
